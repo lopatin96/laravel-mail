@@ -13,7 +13,7 @@ return new class extends Migration
 
             $table->id();
             $table->foreignId('user_id');
-            $table->string("mail_type");
+            $table->string('mail_type');
             $table->string('status');
             $table->timestamps();
         });

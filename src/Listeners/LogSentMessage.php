@@ -2,10 +2,10 @@
 
 namespace Atin\LaravelMail\Listeners;
 
+use Atin\LaravelMail\Models\MailLog;
 use Illuminate\Mail\Events\MessageSent;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use function App\Listeners\env;
 
 class LogSentMessage implements ShouldQueue
 {
@@ -20,12 +20,14 @@ class LogSentMessage implements ShouldQueue
     /**
      * Handle the event.
      */
-    public function handle(MessageSending $event): void
+    public function handle(MessageSent $event): void
     {
-        $event->user->update([
-            'city' => $event->user->latitude && $event->user->longitude
-                ? $this->getCityNameByLatitudeLongitude($event->user->latitude, $event->user->longitude)
-                : null,
-        ]);
+        if (property_exists($event->message, 'mailable')) {
+            MailLog::create([
+                'user_id' => \App\Models\User::where('email', '=', $event->message->getTo()[0]->getAddress())->first()->id,
+                'mail_type' => $event->message->mailable,
+                'status' => \Atin\LaravelMail\Enums\MailStatus::Sent,
+            ]);
+        }
     }
 }

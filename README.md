@@ -37,9 +37,21 @@ protected $listen = [
 ```
 
 ### Generating Mailables
-New "mailable" class will be stored in the *app/Mail* drectory.
+New "mailable" class will be stored in the *app/Mail* directory.
 ```php
 php artisan make:mail OrderShipped
+```
+
+### Mailable class
+Extend from ```\Atin\LaravelMail\Mail\Mailable``` to log.
+```php
+class UserConfirmEmail extends \Atin\LaravelMail\Mail\Mailable
+{
+    public function build()
+    {
+         // Build email
+    }
+}
 ```
 
 # Publishing
