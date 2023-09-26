@@ -45,7 +45,9 @@ php artisan make:mail OrderShipped
 ### Mailable class
 Extend from ```\Atin\LaravelMail\Mail\Mailable``` to log.
 ```php
-class UserConfirmEmail extends \Atin\LaravelMail\Mail\Mailable
+use Atin\LaravelMail\Mail\Mailable;
+
+class UserConfirmEmail extends Mailable
 {
     public function build()
     {
