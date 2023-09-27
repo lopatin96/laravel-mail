@@ -50,6 +50,17 @@ class UserConfirmEmail extends Mailable
 }
 ```
 
+### Trait
+Add ```HasMailLogs``` trait.
+```php
+use Atin\LaravelLangSwitcher\Traits\HasMailLogs;
+
+class User extends Authenticatable
+{
+    use HasMailLogs;
+    …
+}
+```
 # Publishing
 ### Config
 ```php
