@@ -43,7 +43,7 @@ php artisan make:mail OrderShipped
 ```
 
 ### Mailable class
-Extend from ```\Atin\LaravelMail\Mail\Mailable``` to log.
+Extend from ```Atin\LaravelMail\Mail\Mailable``` to log.
 ```php
 use Atin\LaravelMail\Mail\Mailable;
 
