@@ -22,11 +22,12 @@ class LogSendingMessage implements ShouldQueue
      */
     public function handle(MessageSending $event): void
     {
-        dd($event->message->getHeaders());
-        MailLog::create([
-            'user_id' => \App\Models\User::where('email', '=', $event->message->getTo()[0]->getAddress())->first()->id,
-            'mail_type' => $event->message->mailable,
-            'status' => \Atin\LaravelMail\Enums\MailStatus::Sending,
-        ]);
+        if ($mailable = $event->message->getHeaders()->get('mailable')?->getValue()) {
+            MailLog::create([
+                'user_id' => \App\Models\User::where('email', '=', $event->message->getTo()[0]->getAddress())->first()->id,
+                'mail_type' => $mailable,
+                'status' => \Atin\LaravelMail\Enums\MailStatus::Sending,
+            ]);
+        }
     }
 }
