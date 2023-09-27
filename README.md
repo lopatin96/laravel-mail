@@ -53,7 +53,7 @@ class UserConfirmEmail extends Mailable
 ### Trait
 Add ```HasMailLogs``` trait.
 ```php
-use Atin\LaravelLangSwitcher\Traits\HasMailLogs;
+use Atin\LaravelMail\Traits\HasMailLogs;
 
 class User extends Authenticatable
 {

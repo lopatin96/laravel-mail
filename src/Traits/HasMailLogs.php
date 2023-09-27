@@ -1,6 +1,6 @@
 <?php
 
-namespace Atin\LaravelUserable\Traits;
+namespace Atin\LaravelMail\Traits;
 
 use Atin\LaravelMail\Models\MailLog;
 use Illuminate\Database\Eloquent\Model;
