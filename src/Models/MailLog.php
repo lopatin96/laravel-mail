@@ -12,10 +12,5 @@ class MailLog extends Model
     protected $fillable = [
         'user_id',
         'mail_type',
-        'status',
-    ];
-
-    protected $casts = [
-        'status' => \Atin\LaravelMail\Enums\MailStatus::class,
     ];
 }

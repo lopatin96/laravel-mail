@@ -13,11 +13,9 @@ php artisan vendor:publish --tag="laravel-mail-config"
 ```
 
 ### Listeners
-Register two event listeners in *App\Providers\EventServiceProvider*:
+Register an event listener in *App\Providers\EventServiceProvider*:
 ```php
-use Atin\LaravelMail\Listeners\LogSendingMessage;
 use Atin\LaravelMail\Listeners\LogSentMessage;
-use Illuminate\Mail\Events\MessageSending;
 use Illuminate\Mail\Events\MessageSent;
  
 /**
@@ -26,10 +24,6 @@ use Illuminate\Mail\Events\MessageSent;
  * @var array
  */
 protected $listen = [
-    MessageSending::class => [
-        LogSendingMessage::class,
-    ],
- 
     MessageSent::class => [
         LogSentMessage::class,
     ],
