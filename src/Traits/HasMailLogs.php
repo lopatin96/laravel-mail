@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 
 trait HasMailLogs
 {
-    public function links()
+    public function mail_logs()
     {
         return $this->hasMany(MailLog::class);
     }
