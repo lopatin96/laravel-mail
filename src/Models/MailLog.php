@@ -5,10 +5,11 @@ namespace Atin\LaravelMail\Models;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Atin\LaravelNovaBadges\Traits\HasNovaBadges;
 
 class MailLog extends Model
 {
-    use HasFactory;
+    use HasNovaBadges, HasFactory;
 
     protected $fillable = [
         'user_id',
