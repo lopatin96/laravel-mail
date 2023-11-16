@@ -6,12 +6,6 @@ php artisan vendor:publish --tag="laravel-mail-migrations"
 
 then run ```php artisan migrate```
 
-### Config
-Publish config to manage active mails:
-```php
-php artisan vendor:publish --tag="laravel-mail-config"
-```
-
 ### Listeners
 Register an event listener in *App\Providers\EventServiceProvider*:
 ```php
@@ -60,12 +54,6 @@ class User extends Authenticatable
     use HasMailLogs;
     …
 }
-```
-
-# Publishing
-### Config
-```php
-php artisan vendor:publish --tag="laravel-mail-config"
 ```
 
 ### Migrations
